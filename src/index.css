@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body {
+    @apply h-full bg-white;
+  }
+
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  button,
+  input {
+    @apply font-segoe text-black;
+  }
+
+  h1 {
+    @apply text-[25px] font-extrabold;
+  }
+  
+  input,
+  textarea,
+  select {
+    @apply border-none bg-transparent focus:outline-none;
+  }
+}
+
+@layer components {
+  /* SVG sizes */
+  .icon-sm {
+    @apply h-[18px] w-[18px];
+  }
+
+  .icon-rg {
+    @apply h-[20px] w-[20px];
+  }
+
+  .icon-md { 
+    @apply h-[24px] w-[24px];
+  }
+
+  .icon-lg {
+    @apply h-[32px] w-[32px];
+  }
+}
