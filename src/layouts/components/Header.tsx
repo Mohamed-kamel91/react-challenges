@@ -1,6 +1,6 @@
 export const Header = () => {
   return (
-    <header className="sticky top-0 col-span-2 border-b border-gray p-[20px] bg-white z-50">
+    <header className="border-b border-gray bg-white p-[20px]">
       <a href="/">
         <span className="text-[20px] font-bold">CHALLENGES</span>
       </a>
