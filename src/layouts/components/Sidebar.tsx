@@ -5,7 +5,7 @@ import { cn } from '@utils';
 
 export const Sidebar = () => {
   return (
-    <aside className="pt-10">
+    <aside className="h-full pt-10">
       <nav className="h-full px-5">
         <ul>
           {navigation.map(({ name, path }) => (
@@ -19,8 +19,7 @@ export const Sidebar = () => {
                     'transition-all duration-100 ease-out',
                     !isActive &&
                       'hover:bg-gray-light hover:text-neutral-800',
-                    isActive &&
-                      'bg-violet-100 pl-7 text-violet-800'
+                    isActive && 'bg-violet pl-7 text-violet-dark'
                   )
                 }
               >

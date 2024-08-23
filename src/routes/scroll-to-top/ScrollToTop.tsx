@@ -1,28 +1,102 @@
+import { useRef } from 'react';
+
+import { ScrollProgress } from '@features/ScrollProgress';
 import { ContentLayout } from '@layouts/ContentLayout';
 
 export const ScrollToTop = () => {
+  const ref = useRef<HTMLDivElement | null>(null);
+
   return (
     <ContentLayout title="Scroll To Top">
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-      Odit error id aut aspernatur! Cupiditate unde tempora
-      recusandae! Ipsum consequuntur iste ratione repudiandae
-      harum delectus atque ipsa magni voluptatem vero quasi
-      eveniet, qui numquam quia quae, iusto quam autem!
-      Quibusdam, fugiat voluptatem. Id est explicabo iste
-      repudiandae. Error modi, ullam excepturi dolore quisquam
-      neque enim odit aliquam saepe facere adipisci nostrum natus
-      hic laborum dolor ad ducimus quam molestias mollitia
-      reiciendis reprehenderit, quod delectus culpa sapiente?
-      Autem, quis facere soluta unde ex, pariatur, error fugiat
-      ab nihil cum quae aspernatur dolorem officia eos ipsa
-      quibusdam maiores ipsum iure omnis? Eius id quos in ipsam
-      dolor, repellendus ipsa deserunt assumenda consequuntur,
-      explicabo iure, ex voluptatum delectus veritatis? A,
-      incidunt eaque molestiae odit earum necessitatibus
-      architecto maiores libero debitis quaerat laboriosam quis
-      ratione veritatis dicta quam tenetur corrupti inventore
-      eius totam. Odit dolores ipsa facere labore incidunt ipsum
-      porro dolorem enim, id praesentium, animi nisi maiores
+      <div
+        ref={ref}
+        className="relative h-96 w-96 overflow-auto border-4 border-violet"
+      >
+        <ScrollProgress ref={ref} position="sticky" />
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+        Odit error id aut aspernatur! Cupiditate unde tempora
+        recusandae! Ipsum consequuntur iste ratione repudiandae
+        harum delectus atque ipsa magni voluptatem vero quasi
+        eveniet, qui numquam quia quae, iusto quam autem!
+        Quibusdam, fugiat voluptatem. Id est explicabo iste
+        repudiandae. Error modi, ullam excepturi dolore quisquam
+        neque enim odit aliquam saepe facere adipisci nostrum
+        natus hic laborum dolor ad ducimus quam molestias
+        mollitia reiciendis reprehenderit, quod delectus culpa
+        sapiente? Autem, quis facere soluta unde ex, pariatur,
+        error fugiat ab nihil cum quae aspernatur dolorem officia
+        eos ipsa quibusdam maiores ipsum iure omnis? Eius id quos
+        in ipsam dolor, repellendus ipsa deserunt assumenda
+        consequuntur, explicabo iure, ex voluptatum delectus
+        veritatis? A, incidunt eaque molestiae odit earum
+        necessitatibus architecto maiores libero debitis quaerat
+        laboriosam quis ratione veritatis dicta quam tenetur
+        corrupti inventore eius totam. Odit dolores ipsa facere
+        labore incidunt ipsum porro dolorem enim, id praesentium,
+        animi nisi maiores Lorem ipsum dolor sit amet
+        consectetur, adipisicing elit. Odit error id aut
+        aspernatur! Cupiditate unde tempora recusandae! Ipsum
+        consequuntur iste ratione repudiandae harum delectus
+        atque ipsa magni voluptatem vero quasi eveniet, qui
+        numquam quia quae, iusto quam autem! Quibusdam, fugiat
+        voluptatem. Id est explicabo iste repudiandae. Error
+        modi, ullam excepturi dolore quisquam neque enim odit
+        aliquam saepe facere adipisci nostrum natus hic laborum
+        dolor ad ducimus quam molestias mollitia reiciendis
+        reprehenderit, quod delectus culpa sapiente? Autem, quis
+        facere soluta unde ex, pariatur, error fugiat ab nihil
+        cum quae aspernatur dolorem officia eos ipsa quibusdam
+        maiores ipsum iure omnis? Eius id quos in ipsam dolor,
+        repellendus ipsa deserunt assumenda consequuntur,
+        explicabo iure, ex voluptatum delectus veritatis? A,
+        incidunt eaque molestiae odit earum necessitatibus
+        architecto maiores libero debitis quaerat laboriosam quis
+        ratione veritatis dicta quam tenetur corrupti inventore
+        eius totam. Odit dolores ipsa facere labore incidunt
+        ipsum porro dolorem enim, id praesentium, animi nisi
+        maiores Lorem ipsum dolor sit amet consectetur,
+        adipisicing elit. Odit error id aut aspernatur!
+        Cupiditate unde tempora recusandae! Ipsum consequuntur
+        iste ratione repudiandae harum delectus atque ipsa magni
+        voluptatem vero quasi eveniet, qui numquam quia quae,
+        iusto quam autem! Quibusdam, fugiat voluptatem. Id est
+        explicabo iste repudiandae. Error modi, ullam excepturi
+        dolore quisquam neque enim odit aliquam saepe facere
+        adipisci nostrum natus hic laborum dolor ad ducimus quam
+        molestias mollitia reiciendis reprehenderit, quod
+        delectus culpa sapiente? Autem, quis facere soluta unde
+        ex, pariatur, error fugiat ab nihil cum quae aspernatur
+        dolorem officia eos ipsa quibusdam maiores ipsum iure
+        omnis? Eius id quos in ipsam dolor, repellendus ipsa
+        deserunt assumenda consequuntur, explicabo iure, ex
+        voluptatum delectus veritatis? A, incidunt eaque
+        molestiae odit earum necessitatibus architecto maiores
+        libero debitis quaerat laboriosam quis ratione veritatis
+        dicta quam tenetur corrupti inventore eius totam. Odit
+        dolores ipsa facere labore incidunt ipsum porro dolorem
+        enim, id praesentium, animi nisi maiores Lorem ipsum
+        dolor sit amet consectetur, adipisicing elit. Odit error
+        id aut aspernatur! Cupiditate unde tempora recusandae!
+        Ipsum consequuntur iste ratione repudiandae harum
+        delectus atque ipsa magni voluptatem vero quasi eveniet,
+        qui numquam quia quae, iusto quam autem! Quibusdam,
+        fugiat voluptatem. Id est explicabo iste repudiandae.
+        Error modi, ullam excepturi dolore quisquam neque enim
+        odit aliquam saepe facere adipisci nostrum natus hic
+        laborum dolor ad ducimus quam molestias mollitia
+        reiciendis reprehenderit, quod delectus culpa sapiente?
+        Autem, quis facere soluta unde ex, pariatur, error fugiat
+        ab nihil cum quae aspernatur dolorem officia eos ipsa
+        quibusdam maiores ipsum iure omnis? Eius id quos in ipsam
+        dolor, repellendus ipsa deserunt assumenda consequuntur,
+        explicabo iure, ex voluptatum delectus veritatis? A,
+        incidunt eaque molestiae odit earum necessitatibus
+        architecto maiores libero debitis quaerat laboriosam quis
+        ratione veritatis dicta quam tenetur corrupti inventore
+        eius totam. Odit dolores ipsa facere labore incidunt
+        ipsum porro dolorem enim, id praesentium, animi nisi
+        maiores
+      </div>
       <br />
       <br />
       <br />

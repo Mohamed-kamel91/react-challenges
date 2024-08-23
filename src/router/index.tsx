@@ -4,7 +4,6 @@ import { MainLayout } from '@layouts/MainLayout';
 import {
   ScrollToTop,
   InterObserver,
-  PrevNextPage,
 } from '@routes';
 
 export const router = createBrowserRouter([
@@ -23,10 +22,6 @@ export const router = createBrowserRouter([
       {
         path: 'intersection-observer',
         Component: InterObserver,
-      },
-      {
-        path: 'prev-next-page',
-        Component: PrevNextPage,
       },
     ],
   },

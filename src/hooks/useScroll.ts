@@ -1,19 +1,49 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
-export const useScroll = () => {
-  const [scroll, setScroll] = useState([
-    window.scrollX,
-    window.scrollY,
-  ]);
+const IS_SERVER = typeof window === 'undefined';
+
+export const useScroll = <T extends HTMLElement = HTMLElement>(
+  ref?: React.RefObject<T> | null
+) => {
+  const [scroll, setScroll] = useState({
+    scrollX: 0,
+    scrollY: 0,
+  });
+
+  const getScrollXY = useCallback(() => {
+    if (ref?.current) {
+      return {
+        scrollX: ref.current.scrollLeft,
+        scrollY: ref.current.scrollTop,
+      };
+    }
+
+    return {
+      scrollX: window.scrollX,
+      scrollY: window.scrollY,
+    };
+  }, [ref]);
 
   useEffect(() => {
-    window.addEventListener('scroll', () => {
-      setScroll([window.scrollX, window.scrollY]);
-    });
-  }, []);
+    if (IS_SERVER) {
+      return;
+    }
 
-  return {
-    scrollX: scroll[0],
-    scrollY: scroll[1],
-  };
+    // Initialize scroll
+    setScroll(getScrollXY());
+
+    const element = ref?.current || window;
+
+    const handleScroll = () => {
+      setScroll(getScrollXY());
+    };
+
+    element.addEventListener('scroll', handleScroll);
+
+    return () => {
+      element.removeEventListener('scroll', handleScroll);
+    };
+  }, [ref, getScrollXY]);
+
+  return scroll;
 };

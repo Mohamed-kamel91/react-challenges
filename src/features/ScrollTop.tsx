@@ -18,7 +18,7 @@ export const ScrollTop = ({ offsetY = 100 }: ScrollTopProps) => {
     return (
       <div
         className={cn(
-          'group fixed bottom-9 right-14 rounded-full border border-violet-200 bg-violet-100'
+          'group fixed bottom-9 right-14 rounded-full border border-violet-200 bg-violet'
         )}
       >
         <button

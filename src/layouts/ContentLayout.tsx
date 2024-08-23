@@ -1,4 +1,5 @@
 import { Head } from '@components/head/Head';
+import { ScrollProgress } from '@features/ScrollProgress';
 
 type ContentLayoutProps = {
   title: string;
@@ -12,8 +13,10 @@ export const ContentLayout = ({
   return (
     <>
       <Head title={title} />
-      
-      <div className="max-w-5xl px-10 pt-10">
+
+      <ScrollProgress />
+
+      <div className="relative max-w-5xl px-10 pt-10">
         <h1>{title}</h1>
 
         <div className="mt-5">{children}</div>

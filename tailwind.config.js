@@ -28,6 +28,10 @@ export default {
           DEFAULT: '#F2F2F2',
           dark: '#6B6B6B',
         },
+        violet: {
+          DEFAULT: '#ede9fe',
+          dark: '#6b21a8',
+        },
         success: '#02C66F',
         warning: '#FF9900',
         danger: '#e94d37',
