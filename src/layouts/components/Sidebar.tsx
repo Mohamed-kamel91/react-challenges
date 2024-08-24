@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 
-import { navigation } from '../constants';
 import { cn } from '@utils';
+import { navigation } from '@routes/constants';
 
 export const Sidebar = () => {
   return (

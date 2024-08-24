@@ -1,3 +1,4 @@
 export { NotFound } from './NotFound';
-export { ScrollToTop } from './scroll-to-top/ScrollToTop';
-export { InterObserver } from './inter-observer/InterObserver';
+export { ScrollToTop } from './ScrollToTop';
+export { InterObserver } from './InterObserver';
+export { MousePositionRoute } from './MousePositionRoute';

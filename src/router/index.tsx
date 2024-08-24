@@ -4,6 +4,7 @@ import { MainLayout } from '@layouts/MainLayout';
 import {
   ScrollToTop,
   InterObserver,
+  MousePositionRoute,
 } from '@routes';
 
 export const router = createBrowserRouter([
@@ -22,6 +23,10 @@ export const router = createBrowserRouter([
       {
         path: 'intersection-observer',
         Component: InterObserver,
+      },
+      {
+        path: 'mouse-position',
+        Component: MousePositionRoute,
       },
     ],
   },
