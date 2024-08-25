@@ -64,7 +64,7 @@ const PageLink = ({
     <Link
       className={cn(
         'flex flex-col px-4 py-3 transition-colors duration-300 ease-out',
-        'border-dark rounded-[10px] border hover:border-violet-dark',
+        'rounded-[10px] border hover:border-violet-dark',
         `text-${align}`
       )}
       to={`/${path}`}
