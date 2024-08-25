@@ -4,8 +4,11 @@ type SelectedVariants<Variants> = {
 
 export function getStyles<
   Variants extends Record<string, Record<string, string>>,
->(base: string = "", variants: Variants) {
-  return function (selectedVariants: SelectedVariants<Variants>) {
+>(variants: Variants) {
+  return function (
+    selectedVariants: SelectedVariants<Variants>,
+    base: string = ''
+  ) {
     let styles = [base];
 
     for (const key of Object.keys(selectedVariants)) {
