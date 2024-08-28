@@ -5,6 +5,7 @@ import {
   ScrollToTop,
   InterObserver,
   MousePositionRoute,
+  ResizablePanelRoute,
 } from '@routes';
 
 export const router = createBrowserRouter([
@@ -27,6 +28,10 @@ export const router = createBrowserRouter([
       {
         path: 'mouse-position',
         Component: MousePositionRoute,
+      },
+      {
+        path: 'resizable-panel',
+        Component: ResizablePanelRoute,
       },
     ],
   },
