@@ -2,7 +2,7 @@ import { Outlet } from 'react-router-dom';
 
 import { Header } from './components/Header';
 import { Sidebar } from './components/Sidebar';
-import { ScrollTop } from '@features/ScrollTop';
+import { ScrollTop } from '@features/scroll-top';
 
 export const MainLayout = () => {
   return (

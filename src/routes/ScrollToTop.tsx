@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 
-import { ScrollProgress } from '@features/ScrollProgress';
 import { ContentLayout } from '@layouts/ContentLayout';
+import { ScrollProgress } from '@features/scroll-progress';
 
 export const ScrollToTop = () => {
   const ref = useRef<HTMLDivElement | null>(null);
