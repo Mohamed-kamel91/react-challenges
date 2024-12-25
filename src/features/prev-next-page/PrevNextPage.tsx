@@ -1,11 +1,7 @@
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
-import { capitalizeFirst, cn } from '@utils';
-
-type Route = {
-  path: string;
-  name: string;
-};
+import { PageLink } from './pageLink';
+import { Route } from './constants';
 
 type PrevNextPageProps<T extends Route> = {
   routes: T[];
@@ -46,36 +42,5 @@ export const PrevNextPage = <T extends Route>({
         </div>
       )}
     </div>
-  );
-};
-
-type PageLinkProps = {
-  direction: 'previous' | 'next';
-  align?: 'left' | 'center' | 'right';
-} & Route;
-
-const PageLink = ({
-  direction,
-  align = 'left',
-  name,
-  path,
-}: PageLinkProps) => {
-  return (
-    <Link
-      className={cn(
-        'flex flex-col px-4 py-3 transition-colors duration-300 ease-out',
-        'rounded-[10px] border hover:border-violet-dark',
-        `text-${align}`
-      )}
-      to={`/${path}`}
-    >
-      <span className="text-xs leading-5 text-gray-dark">
-        {`${capitalizeFirst(direction)} page`}
-      </span>
-
-      <span className="text-sm font-medium leading-5 text-violet-dark">
-        {name}
-      </span>
-    </Link>
   );
 };
