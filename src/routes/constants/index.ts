@@ -4,6 +4,7 @@ import {
   SquareMousePointer,
   MoveUp,
   LucideProps,
+  Table,
 } from 'lucide-react';
 
 export type Navigation = {
@@ -34,5 +35,10 @@ export const navigation: Navigation = [
     path: 'resizable-panel',
     name: 'Resizable panel',
     icon: Scaling,
+  },
+  {
+    path: 'table-pagination',
+    name: 'Table Pagination',
+    icon: Table,
   },
 ];
