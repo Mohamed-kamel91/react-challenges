@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import { Users } from './types';
 
-const URL = 'https://swapi.dev/api/people';
+const URL = 'https://swapi.py4e.com/api/people';
 
 export const useFetchUsers = () => {
   const [isLoading, setLoading] = useState(false);
