@@ -4,6 +4,7 @@ type SelectRowsPerPageProps = {
   count: number;
   rows: number;
   rowsOptions?: number[];
+  isDisabled: boolean;
   handleSelectRows: (
     e: React.ChangeEvent<HTMLSelectElement>
   ) => void;
@@ -13,6 +14,7 @@ export const SelectRowsPerPage = ({
   count,
   rows,
   rowsOptions = [10, 25, 50, 100],
+  isDisabled = false,
   handleSelectRows,
 }: SelectRowsPerPageProps) => {
   const options = Array.from(new Set(rowsOptions));
@@ -25,15 +27,17 @@ export const SelectRowsPerPage = ({
       <select
         id="rows-selector"
         className={cn(
+          'block',
           'px-1 py-[2px]',
           'text-sm',
           'rounded-md border border-solid border-black-light',
           'hover:bg-gray focus:outline focus:outline-2 focus:outline-offset-1 focus:outline-black',
-          'transition-colors'
+          'transition-colors',
+          isDisabled && 'pointer-events-none opacity-50'
         )}
-        tabIndex={0}
         value={rows}
         name="rowsPerPage"
+        disabled={isDisabled}
         aria-labelledby="rows-selector-label"
         onChange={handleSelectRows}
       >

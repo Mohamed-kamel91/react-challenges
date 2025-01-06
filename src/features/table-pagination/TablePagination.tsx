@@ -14,8 +14,9 @@ type TablePaginationProps = {
   count: number;
   page: number;
   pageSize: number;
+  hasData: boolean;
   handleChangePage: (newPage: number) => void;
-  handleChangeRows: (
+  handlePageSize: (
     e: React.ChangeEvent<HTMLSelectElement>
   ) => void;
 };
@@ -24,8 +25,9 @@ export const TablePagination = ({
   count,
   page,
   pageSize,
+  hasData,
   handleChangePage,
-  handleChangeRows,
+  handlePageSize,
 }: TablePaginationProps) => {
   return (
     <Stack justify="between" wrap="wrap" gap={12}>
@@ -40,18 +42,20 @@ export const TablePagination = ({
           <Stack justify="center" align="center" gap={6}>
             <PaginationFirst />
             <PaginationPrev />
-            <PaginationItems />
+            {hasData ? <PaginationItems /> : null}
             <PaginationNext />
             <PaginationLast />
           </Stack>
           <PaginationText />
         </Stack>
       </Pagination>
+
       <SelectRowsPerPage
         count={count}
         rows={pageSize}
         rowsOptions={[5, 10, 15, 20, -1]}
-        handleSelectRows={handleChangeRows}
+        isDisabled={!hasData}
+        handleSelectRows={handlePageSize}
       />
     </Stack>
   );

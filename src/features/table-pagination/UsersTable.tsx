@@ -11,7 +11,9 @@ import { TablePagination } from './TablePagination';
 
 import { usePaginationControls } from '@hooks';
 
-import usersData from './users.json';
+import data from './users.json';
+import { getData } from './utils';
+import { User } from './types';
 
 const tableHeaders = [
   { label: 'Id' },
@@ -21,20 +23,25 @@ const tableHeaders = [
 ];
 
 export const UsersTable = () => {
+  const usersData = data as User[];
   const count = usersData.length;
-
-  const { page, rows, handleChangePage, handleChangeRows } =
+  const hasUsers = count > 0;
+  
+  const { page, pageSize, handleChangePage, handlePageSize } =
     usePaginationControls(count);
 
-  const emptyRows = Math.max(0, page * rows - count);
-  const fromRow = (page - 1) * rows;
-  const toRow = page * rows;
+  const emptyRows = Math.max(0, page * pageSize - count);
 
-  // Users data to display
-  const users = usersData.slice(fromRow, toRow);
+  // User set
+  const users = getData<User>({
+    data: usersData,
+    page,
+    limit: pageSize,
+  });
 
   // Create one row for all the empty rows as a filler
-  const fillerHeight = (205 / 5) * (rows - (count % rows));
+  const fillerHeight =
+    (205 / 5) * (pageSize - (count % pageSize));
 
   return (
     <Table className="min-h-[314px]">
@@ -48,16 +55,29 @@ export const UsersTable = () => {
         </TableRow>
       </TableHeader>
       <TableBody>
-        {users.map((user) => (
-          <TableRow key={user.id}>
-            <TableCell>{user.id}</TableCell>
-            <TableCell>{user.name}</TableCell>
-            <TableCell>{user.age}</TableCell>
-            <TableCell>{user.occupation}</TableCell>
+        {hasUsers ? (
+          <>
+            {users.map((user) => (
+              <TableRow key={user.id}>
+                <TableCell>{user.id}</TableCell>
+                <TableCell>{user.name}</TableCell>
+                <TableCell>{user.age}</TableCell>
+                <TableCell>{user.occupation}</TableCell>
+              </TableRow>
+            ))}
+            {emptyRows > 0 && (
+              <TableRow style={{ height: fillerHeight }} />
+            )}
+          </>
+        ) : (
+          <TableRow className="!bg-transparent">
+            <TableCell
+              colSpan={tableHeaders.length}
+              className="text-center"
+            >
+              No data available.
+            </TableCell>
           </TableRow>
-        ))}
-        {emptyRows > 0 && (
-          <TableRow style={{ height: fillerHeight }} />
         )}
       </TableBody>
       <TableFooter>
@@ -69,9 +89,10 @@ export const UsersTable = () => {
             <TablePagination
               count={count}
               page={page}
-              pageSize={rows}
+              pageSize={pageSize}
+              hasData={hasUsers}
               handleChangePage={handleChangePage}
-              handleChangeRows={handleChangeRows}
+              handlePageSize={handlePageSize}
             />
           </TableCell>
         </TableRow>

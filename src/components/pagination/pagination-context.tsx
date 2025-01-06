@@ -7,8 +7,7 @@ import React, {
 import { PaginationProps } from './Pagination';
 import { usePagination } from './usePagination';
 
-// Pagination context
-const PaginationContext = createContext<{
+type PaginationValue = {
   siblingCount: number;
   currentPage: number;
   totalPages: number;
@@ -17,12 +16,18 @@ const PaginationContext = createContext<{
   toCount: number;
   isFirstPage: boolean;
   isLastPage: boolean;
+  paginationItems: number[];
   handlePrev: () => void;
   handleNext: () => void;
   handleFirst: () => void;
   handleLast: () => void;
   handleClickItem: (item: number) => void;
-} | null>(null);
+};
+
+// Pagination context
+const PaginationContext = createContext<PaginationValue | null>(
+  null
+);
 
 // Pagination hook
 export const usePaginationContext = () => {
@@ -57,23 +62,31 @@ export const PaginationProvider = ({
     toCount,
     isFirstPage,
     isLastPage,
+    paginationItems,
     handlePrev,
     handleNext,
     handleFirst,
     handleLast,
     handleClickItem,
-  } = usePagination({ count, page, pageSize, onPageChange });
+  } = usePagination({
+    count,
+    page,
+    pageSize,
+    siblingCount,
+    onPageChange,
+  });
 
   const contextValue = useMemo(
     () => ({
+      count,
       siblingCount,
       currentPage,
       totalPages,
-      count,
       fromCount,
       toCount,
       isFirstPage,
       isLastPage,
+      paginationItems,
       handlePrev,
       handleNext,
       handleFirst,
@@ -81,14 +94,15 @@ export const PaginationProvider = ({
       handleClickItem,
     }),
     [
+      count,
       siblingCount,
       currentPage,
       totalPages,
-      count,
       fromCount,
       toCount,
       isFirstPage,
       isLastPage,
+      paginationItems,
       handlePrev,
       handleNext,
       handleFirst,
