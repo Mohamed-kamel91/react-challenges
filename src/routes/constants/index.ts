@@ -5,6 +5,7 @@ import {
   MoveUp,
   LucideProps,
   Table,
+  ListCollapse
 } from 'lucide-react';
 
 export type Navigation = {
@@ -40,5 +41,10 @@ export const navigation: Navigation = [
     path: 'table-pagination',
     name: 'Table Pagination',
     icon: Table,
+  },
+  {
+    path: 'accordion',
+    name: 'Accordion',
+    icon: ListCollapse,
   },
 ];

@@ -6,7 +6,8 @@ import {
   InterObserver,
   MousePositionRoute,
   ResizablePanelRoute,
-  TablePaginationRoute
+  TablePaginationRoute,
+  AccordionRoute,
 } from '@routes';
 
 export const router = createBrowserRouter([
@@ -37,6 +38,10 @@ export const router = createBrowserRouter([
       {
         path: 'table-pagination',
         Component: TablePaginationRoute,
+      },
+      {
+        path: 'accordion',
+        Component: AccordionRoute,
       },
     ],
   },
